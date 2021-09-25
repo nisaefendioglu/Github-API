@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.nisaefendioglu.github.Adapter.RepoAdapter;
 import com.nisaefendioglu.github.Api.ApiClient;
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     ImageButton github,search;
     EditText user;
     RecyclerView recyclerview;
-
+    TextView textview;
     RepoApiService repoApiService;
     RepoAdapter repoAdapter;
     LinearLayoutManager linearLayoutManager;
@@ -51,27 +52,30 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 username = user.getText().toString();
+                if(user.getText().toString().equals("")){
+                    textview.setText("Please enter username.");
+                }
+                else {
+                    call().enqueue(new Callback<List<Repo>>() {
+                        @Override
+                        public void onResponse(Call<List<Repo>> call, Response<List<Repo>> response) {
 
-                call().enqueue(new Callback<List<Repo>>() {
-                    @Override
-                    public void onResponse(Call<List<Repo>> call, Response<List<Repo>> response) {
+                            repoList = response.body();
 
-                        repoList = response.body();
+                            repoAdapter = new RepoAdapter(MainActivity.this, repoList);
 
-                        repoAdapter = new RepoAdapter(MainActivity.this,repoList);
+                            recyclerview.setLayoutManager(linearLayoutManager);
 
-                        recyclerview.setLayoutManager(linearLayoutManager);
+                            recyclerview.setAdapter(repoAdapter);
 
-                        recyclerview.setAdapter(repoAdapter);
+                        }
 
-                    }
+                        @Override
+                        public void onFailure(Call<List<Repo>> call, Throwable t) {
 
-                    @Override
-                    public void onFailure(Call<List<Repo>> call, Throwable t) {
-
-                    }
-                });
-
+                        }
+                    });
+                }
             }
         });
 
@@ -83,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
         search = findViewById(R.id.search);
         user = findViewById(R.id.user);
         recyclerview = findViewById(R.id.recyclerview);
+        textview = findViewById(R.id.textview);
 
     }
 

@@ -24,7 +24,7 @@
            android:id="@+id/user"
            android:layout_width="250dp"
            android:layout_height="match_parent"
-           android:hint="Search or jump too..."
+           android:hint="Search user..."
            android:layout_marginLeft="10dp"
            android:textColorHint="#b2bec3"
            android:textColor="@color/white"
@@ -37,9 +37,19 @@
            android:background="@drawable/search"/>
 
    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="5dp"
+        android:text=""
+        android:textColor="#D50000"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="60dp"/>
+        android:layout_marginTop="70dp"/>
 </RelativeLayout>

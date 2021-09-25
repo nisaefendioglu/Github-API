@@ -24,7 +24,6 @@ public class RepoAdapter extends RecyclerView.Adapter<RepoAdapter.RepoHolder> {
 
     public RepoAdapter(Activity activity, List<Repo> repoList) {
         this.layoutInflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
         this.repoList = repoList;
     }
 
