@@ -1,4 +1,4 @@
-package com.nisaefendioglu.github;
+package com.nisaefendioglu.github.Model;
 
 import java.io.Serializable;
 

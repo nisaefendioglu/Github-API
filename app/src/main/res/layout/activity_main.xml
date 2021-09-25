@@ -37,7 +37,6 @@
            android:background="@drawable/search"/>
 
    </LinearLayout>
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"
         android:layout_width="match_parent"

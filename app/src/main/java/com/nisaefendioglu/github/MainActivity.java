@@ -10,6 +10,11 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
+import com.nisaefendioglu.github.Adapter.RepoAdapter;
+import com.nisaefendioglu.github.Api.ApiClient;
+import com.nisaefendioglu.github.Api.RepoApiService;
+import com.nisaefendioglu.github.Model.Repo;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,12 +30,11 @@ public class MainActivity extends AppCompatActivity {
     EditText user;
     RecyclerView recyclerview;
 
-    ApiService apiService;
+    RepoApiService repoApiService;
     RepoAdapter repoAdapter;
     LinearLayoutManager linearLayoutManager;
 
     String username;
-
     List<Repo> repoList = new ArrayList<>();
 
 
@@ -39,8 +43,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
-
-        apiService = RetrofitConfig.retrofit.create(ApiService.class);
+        repoApiService = ApiClient.retrofit.create(RepoApiService.class);
         linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 
@@ -60,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
                         recyclerview.setLayoutManager(linearLayoutManager);
 
                         recyclerview.setAdapter(repoAdapter);
+
                     }
 
                     @Override
@@ -83,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private Call<List<Repo>> call(){
-        return apiService.listRepos(this.username);
+        return repoApiService.listRepos(this.username);
 
     }
 }

@@ -1,4 +1,4 @@
-package com.nisaefendioglu.github;
+package com.nisaefendioglu.github.Adapter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,12 +10,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.nisaefendioglu.github.R;
+import com.nisaefendioglu.github.Model.Repo;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class RepoAdapter extends RecyclerView.Adapter<RepoAdapter.RepoHolder> {
 
     List<Repo> repoList = new ArrayList<>();
+
     LayoutInflater layoutInflater;
 
     public RepoAdapter(Activity activity, List<Repo> repoList) {
@@ -50,13 +54,11 @@ public class RepoAdapter extends RecyclerView.Adapter<RepoAdapter.RepoHolder> {
     class RepoHolder extends RecyclerView.ViewHolder {
 
         TextView nameTextView, descriptionTextView;
-
         public RepoHolder(@NonNull View itemView) {
             super(itemView);
 
             nameTextView = itemView.findViewById(R.id.name);
             descriptionTextView = itemView.findViewById(R.id.description);
-
         }
     }
 
