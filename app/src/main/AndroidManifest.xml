@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Github"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".SplashScreen"
+            android:name=".SplashScreen.SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
