@@ -13,6 +13,7 @@
        android:background="@color/black">
 
        <ImageButton
+           android:id="@+id/github"
            android:layout_width="35dp"
            android:layout_height="35dp"
            android:layout_margin="8dp"
@@ -20,12 +21,13 @@
            />
 
        <EditText
-           android:id="@+id/username"
-           android:layout_width="280dp"
+           android:id="@+id/user"
+           android:layout_width="250dp"
            android:layout_height="match_parent"
            android:hint="Search or jump too..."
            android:layout_marginLeft="10dp"
            android:textColorHint="#b2bec3"
+           android:textColor="@color/white"
            />
        <ImageButton
            android:id="@+id/search"
@@ -37,7 +39,8 @@
    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="80dp"/>
+        android:layout_marginTop="60dp"/>
 </RelativeLayout>
